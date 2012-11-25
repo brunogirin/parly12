@@ -1,0 +1,23 @@
+{% load url from future %}
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Rainy Day</h1>
+{% if vote_record_count > 0 %}
+<p>You currently have {{ vote_record_count }} vote records.</p>
+<p><a href="{% url 'chart_rain' %}">Rainy chart</a></p>
+{% else %}
+{% if error_message %}<p class="error">{{ error_message }}</p>{% endif %}
+<form action="{% url 'install' %}" method="post">
+{% csrf_token %}
+    <p>Your database is currently empty. Choose how to initialise it:</p>
+    <input type="radio" name="install_type" id="install_type_sample" value="sample" checked="checked" />
+    <label for="install_type_sample">Sample data</label><br />
+    <input type="radio" name="install_type" id="install_type_full" value="full" />
+    <label for="install_type_full">Full data (may take some time)</label><br />
+    <input type="submit" value="Install" />
+</form>
+{% endif %}
+</body>
+</html>
+

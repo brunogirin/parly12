@@ -1,0 +1,49 @@
+{% load url from future %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Rainy Day</h1>
+    {% if next_page %}
+    <div id="next-page"><a href="{% url next_page %}">Next</a></div>
+    {% endif %}
+    <div id="content">
+    <div id="chart">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="{{ height }}" width="{{ width }}">
+            <g stroke="black" stroke-width="1">
+                <line x1="{{ chart.gll.x }}" y1="{{ chart.gll.y }}" x2="{{ chart.glr.x }}" y2="{{ chart.glr.y }}" />
+                {% if chart.xlabels %}
+                {% for l in chart.xlabels %}
+                <text fill="black" x="{{ l.pos.x }}" y="{{ l.pos.y }}" style="text-anchor: middle;">
+                    {{ l.label }}
+                </text>
+                {% endfor %}
+                {% else %}
+                <text fill="black" x="{{ chart.xminlabelxy.x }}" y="{{ chart.xminlabelxy.y }}" style="text-anchor: middle;">
+                    {{ chart.xminlabel }}
+                </text>
+                <text fill="black" x="{{ chart.xmaxlabelxy.x }}" y="{{ chart.xmaxlabelxy.y }}" style="text-anchor: middle;">
+                    {{ chart.xmaxlabel }}
+                </text>
+                <text fill="black" x="{{ chart.xlabelxy.x }}" y="{{ chart.xlabelxy.y }}" style="text-anchor: middle;">
+                    {{ chart.xlabel }}
+                </text>
+                {% endif %}
+                {% for s in chart.series %}
+                <g stroke="{{ s.colour }}" fill="none" stroke-width="3">
+                    <path d="{{ s.path }}" />
+                </g>
+                {% endfor %}
+            </g>
+        </svg>
+    </div>
+    <div id="narrative">
+        <h2>{{ title }}</h2>
+        <p>{{ narrative }}</p>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% load url from future %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="{% static 'jquery-1.8.3.js' %}"></script>
+<head>
+<body>
+
+<script type="text/javascript">
+$(document).ready(function() { 
+
+		// The func that calls getCount
+		function pull() {
+		// I use $.ajax. getJSON seems to cache the last data on ie6. Firefox work tho.
+		$.ajax ({
+			type: "GET",
+			url: "{% url 'install_status' %}",
+			dataType: "json",
+			cache: false, //VITAL line: the getJON func does not prevent caching!
+			success: updater //Call this func when we have some data
+		})
+		}
+
+		// Func to use the data fetched
+		function updater( data, success ) {
+			if (data) {
+				// If done flag sent, say so.
+				if (data.done) {
+					txt = "all (" + data.loaded_count + ")";
+				} else { 
+					// We are busy, get the count and...
+					txt = data.loaded_count;
+					// set this to start again in 2 seconds:
+					window.setTimeout( pull, 2000 );
+				}
+				// Display out count/message
+				$('#status').text( "Loaded: " + txt + " records." );
+			}
+		} //end updater
+
+		// You can start it automagically like this:
+		//$('#status').load("{% url 'install_start' %}");
+		
+		//Or with an anchor
+		$("#go").click(function() {
+				$(this).hide(); // Hide the anchor
+				// Call doit func in Django view
+				$('#status').load("{% url 'install_start' %}");
+				// Start the pull function in 1 second:
+				window.setTimeout( pull, 1000);
+			});
+	}); //end ready
+</script>
+
+
+<h1>Rainy Day</h1>
+<p>Installation type chosen: {{ install_type }}. <a id="go" href="#">Start</a></p>
+<p id="status">Loaded: {{ loaded_count }} records.</p>
+<p><a href="{% url 'index' %}">Start using the application.</a></p>
+</body>
+</html>
+

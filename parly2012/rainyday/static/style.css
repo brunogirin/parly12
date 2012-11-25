@@ -1,0 +1,37 @@
+html, body {
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    padding: 20px 10%;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+#content {
+    margin: 50px 10%;
+}
+#chart {
+    float:left;
+}
+#narrative {
+    width: 40%;
+    float: right;
+}
+#next-page {
+    position: fixed;
+    top: 20px;
+    right: 10%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+#next-page a {
+    text-decoration: none;
+    color: black;
+}
+
