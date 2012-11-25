@@ -1,4 +1,5 @@
 # Django settings for parly2012 project.
+import inspect, os
 import settings_db
 
 DEBUG = True
@@ -40,7 +41,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/bruno/Projects/parly2012/media/'
+MEDIA_ROOT = str(os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), '../media/'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -51,7 +52,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/bruno/Projects/parly2012/static/'
+STATIC_ROOT = str(os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), '../static/'))
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
