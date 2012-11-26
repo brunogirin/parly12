@@ -12,7 +12,23 @@ held in a database. I worked with
 original idea and collated all source data; and
 [Ela Osterberger](http://twitter.com/CuteNumbers) who did some brilliant
 analytics work. Full details and a presentation of the hack
-[are available](http://hacks.rewiredstate.org/events/parlyhack-2012/mps-legislative-rainy-day-fun-pack).
+[are available on the Rewired State hack page](http://hacks.rewiredstate.org/events/parlyhack-2012/mps-legislative-rainy-day-fun-pack).
+
+Usage
+-----
+
+In order to run the application, unpack everything, install django then
+navigate to the `parly2012` directory in a terminal and run the following:
+
+    ./manage.py collectstatic
+    ./manage.py syncdb
+    ./manage.py runserver
+
+This will start a lightweight web server that you will be able to access at
+the following URL: <http://localhost:8000>
+
+You will first be presented with a page that asks you to load the data set.
+Note that loading the full data set takes quite a long time.
 
 Take Away
 ---------
