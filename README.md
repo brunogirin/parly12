@@ -6,7 +6,7 @@ The Brief
 
 This is a simple [django](https://www.djangoproject.com/) application
 created for [Rewired State Parliament 2012](http://rewiredstate.org/hacks/parliament-2012)
-that generates graphs from voting behavour by British Members of Parliament
+that generates graphs from voting behaviour by British Members of Parliament
 held in a database. I worked with
 [Charlie Perrins](http://twitter.com/charlieperrins) who came up with the
 original idea and collated all source data; and
