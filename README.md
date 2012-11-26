@@ -47,7 +47,9 @@ investigated but discarded as too complicated due to time constraints:
 * How to [embed R code in python](http://rpy.sourceforge.net/);
 * How to [call Riak from django](https://github.com/basho/riak-python-client).
 
----------------------------------------
+License
+-------
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
