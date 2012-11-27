@@ -32,8 +32,8 @@ the following URL: <http://localhost:8000>
 You will first be presented with a page that asks you to load the data set.
 Note that loading the full data set takes quite a long time.
 
-Take Away
----------
+Technical Tricks
+----------------
 
 As ever with with hack days, there was the opportunity to learn new things,
 some of those are implemented in the code:
@@ -47,7 +47,7 @@ using a no-SQL database such as [riak](http://wiki.basho.com/) or by using
 a statistical language such as [R](http://www.r-project.org/), which were
 investigated but discarded as too complicated due to time constraints:
 * How to [embed R code in python](http://rpy.sourceforge.net/);
-* How to [call Riak from django](https://github.com/basho/riak-python-client).
+* How to [call Riak in python](https://github.com/basho/riak-python-client).
 
 License
 -------
