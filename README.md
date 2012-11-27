@@ -22,6 +22,7 @@ Usage
 In order to run the application, unpack everything, install django then
 navigate to the `parly2012` directory in a terminal and run the following:
 
+    mkdir ../static
     ./manage.py collectstatic
     ./manage.py syncdb
     ./manage.py runserver
