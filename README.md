@@ -14,6 +14,8 @@ original idea and collated all source data; and
 analytics work. Full details and a presentation of the hack
 [are available on the Rewired State hack page](http://hacks.rewiredstate.org/events/parlyhack-2012/mps-legislative-rainy-day-fun-pack).
 
+![Application screen shot](http://brunogirin.github.com/parly12/images/screenshot.png)
+
 Usage
 -----
 
